@@ -1,0 +1,129 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Indie Flower', cursive;
+    background-color: #fce4ec;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header styling */
+header h1 {
+    color: #ff4081;
+    font-size: 3rem;
+    margin-top: 20px;
+}
+
+.bold-hammy {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+}
+
+/* Image container styling */
+.image-container img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 40px 0; /* Increased space between image and buttons */
+}
+
+/* Video container styling */
+.video-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+}
+
+.video-title {
+    font-size: 2rem;
+    color: #ff4081;
+    margin-bottom: 20px;
+}
+
+video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+/* Button styling */
+.button {
+    padding: 15px 25px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    background-color: #ff4081;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    font-family: 'Comic Neue', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.button img.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.button:hover {
+    background-color: #f50057; /* Darker pink */
+}
+
+/* Footer styling */
+footer {
+    background-color: #ff4081;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-left {
+    font-size: 1.2rem; /* Slightly bigger text */
+    text-align: left;
+    margin-left: 20px;
+    align-self: flex-end; /* Align to the bottom left corner */
+}
+
+.footer-right {
+    font-size: 1.2rem; /* Slightly bigger text */
+    text-align: right;
+    margin-right: 20px;
+}
+
+.footer-right a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
