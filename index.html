@@ -53,13 +53,26 @@
         <p>by submitting a meme you are entering a raffle for $HAMMY on launch day</p>
     </div>
 
-    <div class="video-container" id="video-container">
-        <h2 class="video-title">Meet Hammy⤵️</h2>
-        <video id="hammy-video" controls autoplay>
-            <source src="HammyTrailer.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+<div class="video-container" id="video-container">
+    <h2 class="video-title">Meet Hammy⤵️</h2>
+    <video id="hammy-video" controls autoplay>
+        <source src="HammyTrailer.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var video = document.getElementById('hammy-video');
+        video.volume = 0.3; // Set volume to 30%
+
+        // Autoplay check workaround
+        video.play().catch(function(error) {
+            console.log("Autoplay prevented, user interaction needed.");
+        });
+    });
+</script>
+
 
     <!-- Footer Section -->
     <footer>
