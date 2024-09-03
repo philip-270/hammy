@@ -6,8 +6,9 @@
     <title>Hammy the Hamster</title>
     <!-- Link to the CSS file -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Including Google Font for the cute header -->
+    <!-- Including Google Font for the header and countdown -->
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -15,21 +16,45 @@
         <h1><span class="bold-hammy">$HAMMY</span> the Hamster</h1>
     </header>
 
-    <!-- Hammy Image -->
-    <div class="image-container">
-        <img src="hammy.jpeg" alt="Hammy the Hamster">
+    <!-- Countdown Timer -->
+    <div id="countdown-timer">
+        Launching in <span id="countdown" class="countdown-bold"></span> only on <a href="https://snek.fun" target="_blank">snek.fun</a>
+    </div>
+
+    <!-- Image Slider with Navigation Buttons -->
+    <div class="slider-container">
+        <button class="slider-button prev-button" onclick="prevImage()">❮</button>
+        
+        <img id="slider-image" src="memeorigin.jpeg" alt="OG MEME🐹">
+
+        <button class="slider-button next-button" onclick="nextImage()">❯</button>
+    </div>
+
+    <!-- Image Title -->
+    <div class="image-title">
+        <h2 id="image-title">OG MEME🐹</h2>
     </div>
 
     <div class="button-container">
         <a href="https://x.com/hammycoinada" target="_blank" class="button">
             <span class="bold-x">X</span> /hammycoinada
         </a>
-        <a href="#" class="button" id="give-love-button">❤️ Give Hammy Love</a>
+        <a href="https://twitter.com/intent/tweet?text=Hammy%20loves%20you%20too!%20❤️%20%0AYou%20will%20receive%20a%20special%20reward.%20%0A%0A$HAMMY%20-%20launching%20Sep%205th%20only%20on%20@snekdotfun" target="_blank" class="button" id="give-love-button">❤️ Give Hammy Love</a>
         <a href="https://snek.fun" target="_blank" class="button">🐍 Token Launch</a>
     </div>
 
+    <!-- New Meme Submission Button -->
+    <div class="button-container meme-submit-container">
+        <a href="https://twitter.com/intent/tweet?text=may%20@hammycoinada%20bless%20me%20with%20some%20$HAMMY%20%0A👉👈%0A%0Ahere%20is%20my%20meme:%20" target="_blank" class="button meme-submit-button">📤 Submit your $HAMMY meme here</a>
+    </div>
+
+    <!-- New Text Below the Meme Submission Button -->
+    <div class="meme-info">
+        <p>by submitting a meme you are entering a raffle for $HAMMY on launch day</p>
+    </div>
+
     <div class="video-container" id="video-container">
-        <h2 class="video-title">Meet Hammy:</h2>
+        <h2 class="video-title">Meet Hammy⤵️</h2>
         <video id="hammy-video" controls autoplay>
             <source src="HammyTrailer.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -52,24 +77,56 @@
     </footer>
 
     <script>
-        document.getElementById('give-love-button').addEventListener('click', function() {
-            const textToPost = "THX for giving @hammycoinada some love❤️\nyou will recieve a special invite 👀\n\nLaunching September 5th only on @snekdotfun";
-            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(textToPost)}`;
-            window.open(twitterUrl, '_blank');
-        });
+        let currentImageIndex = 0;
+        const images = [
+            {src: "memeorigin.jpeg", title: "OG MEME🐹"},
+            {src: "hammylovesada.png", title: "Hammy loves Cardano ❤️"},
+            {src: "meme3.png", title: "Hammy got peed on 😭"},
+            {src: "meme2.png", title: "Hammywiffriends🎉"},
+            {src: "hammythebuilder.png", title: "Hammy the Builder🛠️"}
+        ];
+        const imageElement = document.getElementById('slider-image');
+        const titleElement = document.getElementById('image-title');
 
-        // Autoplay video when scrolled into view
-        document.addEventListener('scroll', function() {
-            const videoContainer = document.getElementById('video-container');
-            const video = document.getElementById('hammy-video');
-            const rect = videoContainer.getBoundingClientRect();
+        function showImage(index) {
+            imageElement.src = images[index].src;
+            titleElement.textContent = images[index].title;
+        }
 
-            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-                video.play();
-            } else {
-                video.pause();
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        // Initialize the slider with the first image
+        showImage(currentImageIndex);
+
+        // Countdown Timer Script (Original Code)
+        var startTime = new Date(Date.UTC(2024, 8, 3, 15, 30, 0)).getTime(); // UTC equivalent of 17:30 CET
+        var countdownDuration = (52 * 60 * 60 * 1000) + (30 * 60 * 1000); // 52 hours + 30 minutes in milliseconds
+        var countDownDate = startTime + countdownDuration;
+
+        var countdownFunction = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var hours = Math.floor((distance / (1000 * 60 * 60)));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = hours + " : " 
+            + minutes + " : " + seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
             }
-        });
+        }, 1000);
     </script>
 
 </body>
