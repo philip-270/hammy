@@ -2,13 +2,13 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Comic Neue', cursive; 
     background-color: #fce4ec;
     text-align: center;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 100vh;
 }
 
 /* Header styling */
@@ -16,6 +16,8 @@ header h1 {
     color: #ff4081;
     font-size: 3rem;
     margin-top: 20px;
+    margin-bottom: -30px;
+    font-family: 'Indie Flower', cursive;
 }
 
 .bold-hammy {
@@ -24,13 +26,124 @@ header h1 {
     font-size: 3.5rem;
 }
 
-/* Image container styling */
-.image-container img {
+/* Countdown Timer Styling */
+#countdown-timer {
+    font-size: 2rem;
+    color: #ff4081;
+    margin: 20px 0;
+    font-family: 'Comic Neue', sans-serif;
+}
+
+#countdown-timer a {
+    color: #ff4081;
+    text-decoration: underline;
+}
+
+#countdown-timer a:hover {
+    color: #f50057;
+    text-decoration: none;
+}
+
+.countdown-bold {
+    font-weight: bold;
+}
+
+/* Slider container styling */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    margin: 0px auto;	
+}
+
+#slider-image {
     width: 100%;
     max-width: 300px;
     border-radius: 15px;
+}
+
+/* Button styling */
+.slider-button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+}
+
+.slider-button:hover {
+    background-color: #f50057;
+}
+
+/* Pumping animation for the "Give Hammy Love" button */
+@keyframes pump {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+#give-love-button {
+    animation: pump 1s infinite;
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+/* Meme Submission Button Styling */
+.meme-submit-container {
+    margin-top: 20px;
+}
+
+.meme-submit-button {
+    width: 100%;
+    max-width: 400px; /* Make the button slightly longer */
+    padding: 15px 30px;
+    background-color: #ff4081;
+    color: white;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 40px 0; /* Increased space between image and buttons */
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: 'Comic Neue', sans-serif;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+}
+
+.meme-submit-button:hover {
+    background-color: #f50057;
+}
+
+/* Small text below the Meme Submission Button */
+.meme-info {
+    font-size: 0.8rem; /* Smaller font size */
+    color: #ff4081;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin-top: 10px;
+}
+
+/* Image title styling */
+.image-title {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 1rem;
+    color: #ff4081;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-weight: bold;
 }
 
 /* Video container styling */
@@ -40,7 +153,7 @@ header h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 60px 0;
+    margin: 30px 0;
 }
 
 .video-title {
@@ -61,11 +174,11 @@ video {
     display: flex;
     justify-content: center;
     gap: 25px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 
-/* Button styling */
+/* General button styling */
 .button {
     padding: 15px 25px;
     font-size: 1.5rem;
@@ -105,14 +218,14 @@ footer {
 }
 
 .footer-left {
-    font-size: 1.2rem; /* Slightly bigger text */
+    font-size: 1.2rem;
     text-align: left;
     margin-left: 20px;
-    align-self: flex-end; /* Align to the bottom left corner */
+    align-self: flex-end;
 }
 
 .footer-right {
-    font-size: 1.2rem; /* Slightly bigger text */
+    font-size: 1.2rem;
     text-align: right;
     margin-right: 20px;
 }
@@ -126,4 +239,3 @@ footer {
 .footer-right a:hover {
     text-decoration: underline;
 }
-
